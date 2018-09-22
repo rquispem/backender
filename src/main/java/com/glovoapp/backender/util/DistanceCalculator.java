@@ -1,6 +1,11 @@
-package com.glovoapp.backender;
+package com.glovoapp.backender.util;
 
-import static java.lang.Math.*;
+import static java.lang.Math.atan2;
+import static java.lang.Math.cos;
+import static java.lang.Math.sqrt;
+import static java.lang.Math.toRadians;
+
+import com.glovoapp.backender.model.Location;
 
 /**
  * Shamelessly copied from https://github.com/jasonwinn/haversine

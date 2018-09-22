@@ -1,6 +1,11 @@
-package com.glovoapp.backender;
+package com.glovoapp.backender.repository;
 
 import org.junit.jupiter.api.Test;
+
+import com.glovoapp.backender.model.Courier;
+import com.glovoapp.backender.model.Location;
+import com.glovoapp.backender.model.Vehicle;
+import com.glovoapp.backender.repository.CourierRepository;
 
 import java.util.List;
 

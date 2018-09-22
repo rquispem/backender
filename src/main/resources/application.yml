@@ -4,4 +4,4 @@ server:
 #  Backender properties
 
 backender:
-  welcome_message: Hello Ruben!!
+  welcome_message: Hello Backender!!
