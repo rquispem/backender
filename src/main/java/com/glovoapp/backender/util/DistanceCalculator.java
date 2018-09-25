@@ -26,7 +26,7 @@ public class DistanceCalculator {
 
         double a = haversin(deltaLat) + cos(startLat) * cos(endLat) * haversin(deltaLong);
         double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-
+        
         return EARTH_RADIUS * c;
     }
 

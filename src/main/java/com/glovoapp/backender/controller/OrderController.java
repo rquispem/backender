@@ -1,32 +1,36 @@
 package com.glovoapp.backender.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.glovoapp.backender.exception.NoCourierFoundException;
 import com.glovoapp.backender.model.OrderVM;
-import com.glovoapp.backender.repository.OrderRepository;
+import com.glovoapp.backender.service.OrderService;
 
-@Controller
+@RestController
 class OrderController {
-    private final OrderRepository orderRepository;
+	
+	private final OrderService orderService;
 
     @Autowired
-    OrderController(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
+    OrderController(final OrderService orderService) {
+    	this.orderService = orderService;
     }
 
-    @RequestMapping("/orders")
-    @ResponseBody
+    @GetMapping("/orders")
     List<OrderVM> orders() {
-        return orderRepository.findAll()
-                .stream()
-                .map(order -> new OrderVM(order.getId(), order.getDescription()))
-                .collect(Collectors.toList());
+        return orderService.findAll();
+    }
+    
+    @GetMapping("/orders/{courierId}")
+    List<OrderVM> ordersByCourier(@PathVariable("courierId") final String courierId) throws NoCourierFoundException {
+    	
+    	return orderService.findByCourier(courierId);
+    			
     }
 
 }

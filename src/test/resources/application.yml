@@ -3,10 +3,11 @@ backender:
   criteria: 
     box: 
       message: hola hola
-      descriptions: 
+      descriptions:
         - pizza
         - cake
-        - flamingo
+        - flamingo 
+        
     order: 
       distance: 1.0
       priority:
